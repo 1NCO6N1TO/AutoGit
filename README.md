@@ -43,4 +43,4 @@ el escript lo puedes colocar en el directorio /usr/loca/bin para accerder al scr
 ## Licencia
 
 Este script es de dominio público. Siéntete libre de modificarlo y compartirlo según tus necesidades.
-```
+
