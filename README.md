@@ -20,7 +20,7 @@ Para usar este script, sigue estos pasos:
 ```bash
 chmod +x AutoGit.sh
 ```
-el escript lo puedes colocar en el directorio /usr/loca/bin para accerder al script desde cualquier parte del sistema.
+el escript lo puedes colocar en el directorio `/usr/loca/bin` para accerder al script desde cualquier parte del sistema.
 
 2. Ejecuta el script desde el terminal en la raíz de tu repositorio de Git:
 
