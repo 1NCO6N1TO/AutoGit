@@ -1,5 +1,5 @@
 #!/bin/bash
-# Elaborado por INCOGN1T0 
+# Elaborado por INCO6N1T0 
 
 # Verificar si el directorio .git existe
 if [ ! -d '.git' ]; then
