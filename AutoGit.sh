@@ -1,18 +1,20 @@
 #!/bin/bash
-#Elaborado por Luis Pacheco AKA INCO6N1TO 
+# Elaborado por INCOGN1T0 
 
+# Verificar si el directorio .git existe
 if [ ! -d '.git' ]; then
     echo "La carpeta .git no existe."
     exit 1
 fi
- 
-if ! git diff --exit-code --quiet && git diff --cached --exit-code --quiet; then
+
+# Verificar si hay cambios no guardados o archivos no rastreados
+if ! git diff --exit-code --quiet || ! git diff --cached --exit-code --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
     while true; do
-        echo "desea agregar todo los archivos al commit? (s/n)"
+        echo "Desea agregar todos los archivos al commit? (s/n)"
         read respuesta 
         if [[ $respuesta == "s" ]]; then
             git add .
-            echo "tods los archivos han sido agregados al commit."
+            echo "Todos los archivos han sido agregados al commit."
             break
         elif [[ $respuesta == "n" ]]; then
             git status
@@ -40,8 +42,9 @@ if ! git diff --exit-code --quiet && git diff --cached --exit-code --quiet; then
     git commit -m "$mensaje"
     echo "El commit ha sido realizado."
 
-    echo "ingre el nombre de la rama a la que desea subir los cambios: "
+    echo "Ingrese el nombre de la rama a la que desea subir los cambios: "
     read rama
     git push origin $rama
-
+else
+    echo "No hay cambios que confirmar."
 fi
