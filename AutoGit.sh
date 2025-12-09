@@ -39,12 +39,16 @@ if ! git diff --exit-code --quiet || ! git diff --cached --exit-code --quiet || 
         exit 1
     fi
     
-    git commit -m "$mensaje"
-    echo "El commit ha sido realizado."
+    if git commit -m "$mensaje"; then
+        echo "El commit ha sido realizado."
 
-    echo "Ingrese el nombre de la rama a la que desea subir los cambios: "
-    read rama
-    git push origin $rama
+        echo "Ingrese el nombre de la rama a la que desea subir los cambios: "
+        read rama
+        git push origin $rama
+    else
+        echo "No se pudo realizar el commit. Verifique si hay cambios preparados o si el repositorio está configurado correctamente."
+        exit 1
+    fi
 else
     echo "No hay cambios que confirmar."
 fi
